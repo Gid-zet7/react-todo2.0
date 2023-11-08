@@ -56,6 +56,7 @@ export const ProjectForm = ({
               placeholder="Enter project name"
               className="project-name"
               value={projectName}
+              name={projectName}
               required
               onChange={projectNameHandler}
             />

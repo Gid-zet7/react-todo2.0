@@ -1,4 +1,6 @@
 import { ProjectForm } from "./forms/ProjectForm";
+import { DefaultProjectItem } from "./DefaultProjectItem";
+import { ProjectItem } from "./ProjectItem";
 
 /* eslint-disable react/prop-types */
 ProjectForm;
@@ -16,6 +18,8 @@ export const Project = ({
   // editProj,
   // setEditProj,
   setPreview,
+  projectOnclicked,
+  setprojectOnclicked,
   //   tasks,
   //   createTask,
   //   setTasks,
@@ -43,6 +47,42 @@ export const Project = ({
         <div className="project-header">
           <h3>Task Manager</h3>
         </div>
+      </div>
+      <div className="project-list">
+        <ul>
+          {todoList.map((todo) => {
+            if (
+              todo.projectName === "Inbox" ||
+              todo.projectName === "Today Tasks"
+            ) {
+              return (
+                <DefaultProjectItem
+                  key={todo.id}
+                  projects={projects}
+                  setProjects={setProjects}
+                  todo={todo}
+                  setPreview={setPreview}
+                  projectOnclicked={projectOnclicked}
+                  setprojectOnclicked={setprojectOnclicked}
+                  todoList={todoList}
+                  setTodoList={setTodoList}
+                />
+              );
+            } else {
+              return (
+                <ProjectItem
+                  key={todo.id}
+                  todo={todo}
+                  setPreview={setPreview}
+                  projectOnclicked={projectOnclicked}
+                  setprojectOnclicked={setprojectOnclicked}
+                  todoList={todoList}
+                  setTodoList={setTodoList}
+                />
+              );
+            }
+          })}
+        </ul>
       </div>
 
       {/* button calls the "createProjHandler" function to change the value of "createProj" when clicked on */}
