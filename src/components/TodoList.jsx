@@ -14,6 +14,10 @@ export const TodoList = ({
   setCreateProj,
   editProj,
   setEditProj,
+  preview,
+  setPreview,
+  projectOnclicked,
+  setprojectOnclicked,
   tasks,
   createTask,
   setTasks,
@@ -46,6 +50,10 @@ export const TodoList = ({
         setCreateProj={setCreateProj}
         editProj={editProj}
         setEditProj={setEditProj}
+        preview={preview}
+        setPreview={setPreview}
+        projectOnclicked={projectOnclicked}
+        setprojectOnclicked={setprojectOnclicked}
         tasks={tasks}
         createTask={createTask}
         setCreateTask={setCreateTask}
