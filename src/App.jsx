@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import uniqid from "uniqid";
 import { TodoList } from "./components/TodoList";
+import { Header } from "./components/Header";
 
 function App() {
   const initialTodoListState = JSON.parse(localStorage.getItem("todoList")) || [
@@ -44,6 +45,7 @@ function App() {
   }, [tasks]);
   return (
     <>
+      <Header />
       <TodoList
         todoList={todoList}
         setTodoList={setTodoList}
