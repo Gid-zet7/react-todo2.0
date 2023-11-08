@@ -12,7 +12,7 @@ export const TaskItem = ({
   todayTasks,
   setTodayTasks,
 }) => {
-  // This function finds the task you want to delete and sets it to "editTask"
+  // This function finds the task to be edited and sets it to "editTask"
   const editHandler = ({ id }) => {
     const findTask = todoList
       .find((todo) => todo.projectName === projectOnclicked)
@@ -57,7 +57,18 @@ export const TaskItem = ({
     setTodoList(todoList.filter((todo) => typeof todo === "object"));
   };
   return (
-    <li key={task.id}>
+    <li
+      key={task.id}
+      className={
+        task.taskPriority === "high"
+          ? "high-priority"
+          : task.taskPriority === "medium"
+          ? "medium-priority"
+          : task.taskPriority === "low"
+          ? "low-priority"
+          : "task-item"
+      }
+    >
       <div className="input-container">
         {/* <span>name</span> */}
         <input
