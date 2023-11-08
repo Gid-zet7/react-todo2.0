@@ -43,6 +43,15 @@ function App() {
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
+
+  useEffect(() => {
+    if (editTask) {
+      setTaskName(editTask.taskName);
+      setTaskDesc(editTask.taskDesc);
+      setTaskDate(editTask.taskDate);
+      setTaskPriority(editTask.taskPriority);
+    }
+  }, [setTaskName, setTaskDesc, setTaskDate, setTaskPriority, editTask]);
   return (
     <>
       <Header />
