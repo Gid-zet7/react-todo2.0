@@ -355,14 +355,17 @@ export const TaskForm = ({
           </div>
 
           <div className="task-priority__field fields">
-            <input
-              type="text"
-              placeholder="Enter priority"
-              className="task-desc"
+            <select
+              name={taskPriority}
+              className="task-priority"
               value={taskPriority}
               required
               onChange={changePriorityHandler}
-            />
+            >
+              <option value="high">high</option>
+              <option value="medium">medium</option>
+              <option value="low">low</option>
+            </select>
             <span className="error" aria-live="polite"></span>
           </div>
           <div className="task-date__field fields">
