@@ -1,9 +1,11 @@
 import { ProjectForm } from "./forms/ProjectForm";
 import { DefaultProjectItem } from "./DefaultProjectItem";
+import { ProjectPreview } from "./ProjectPreview";
+import { TaskForm } from "./forms/TaskForm";
 import { ProjectItem } from "./ProjectItem";
+import { useEffect } from "react";
 
 /* eslint-disable react/prop-types */
-ProjectForm;
 export const Project = ({
   todoList,
   setTodoList,
@@ -17,30 +19,35 @@ export const Project = ({
   setCreateProj,
   // editProj,
   // setEditProj,
+  preview,
   setPreview,
   projectOnclicked,
   setprojectOnclicked,
-  //   tasks,
-  //   createTask,
-  //   setTasks,
-  //   taskName,
-  //   setTaskName,
-  //   taskDesc,
-  //   setTaskDesc,
-  //   taskDate,
-  //   setTaskDate,
-  //   taskPriority,
-  //   setTaskPriority,
-  //   setCreateTask,
-  //   editTask,
-  //   setEditTask,
-  //   todayTasks,
-  //   setTodayTasks,
+  tasks,
+  createTask,
+  setTasks,
+  taskName,
+  setTaskName,
+  taskDesc,
+  setTaskDesc,
+  taskDate,
+  setTaskDate,
+  taskPriority,
+  setTaskPriority,
+  setCreateTask,
+  editTask,
+  setEditTask,
+  todayTasks,
+  setTodayTasks,
 }) => {
   // Responsible for changing the state/value of "createProj"
   const createProjHandler = () => {
     setCreateProj((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    console.log(preview);
+  });
   return (
     <>
       <div className="projects__container">
@@ -104,13 +111,6 @@ export const Project = ({
         Create Project
       </button>
 
-      {/* Displays the list of projects */}
-      <ul>
-        {todoList.map((todo) => {
-          return <li key={todo.id}>{todo.projectName}</li>;
-        })}
-      </ul>
-
       {/* If "createProj" value/state is true the form is displayed and not displayed if false */}
 
       {createProj && (
@@ -126,6 +126,47 @@ export const Project = ({
           setPreview={setPreview}
           todoList={todoList}
           setTodoList={setTodoList}
+        />
+      )}
+
+      {preview && (
+        <ProjectPreview
+          projects={projects}
+          setProjects={setProjects}
+          editTask={editTask}
+          setEditTask={setEditTask}
+          setCreateTask={setCreateTask}
+          projectOnclicked={projectOnclicked}
+          tasks={tasks}
+          setTasks={setTasks}
+          todoList={todoList}
+          setTodoList={setTodoList}
+          todayTasks={todayTasks}
+          setTodayTasks={setTodayTasks}
+        />
+      )}
+
+      {createTask && (
+        <TaskForm
+          tasks={tasks}
+          setTasks={setTasks}
+          taskName={taskName}
+          setTaskName={setTaskName}
+          taskDesc={taskDesc}
+          setTaskDesc={setTaskDesc}
+          taskDate={taskDate}
+          setTaskDate={setTaskDate}
+          taskPriority={taskPriority}
+          setTaskPriority={setTaskPriority}
+          setCreateTask={setCreateTask}
+          editTask={editTask}
+          setEditTask={setEditTask}
+          projectName={projectName}
+          projectOnclicked={projectOnclicked}
+          todoList={todoList}
+          setTodoList={setTodoList}
+          todayTasks={todayTasks}
+          setTodayTasks={setTodayTasks}
         />
       )}
     </>
