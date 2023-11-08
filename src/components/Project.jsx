@@ -12,6 +12,22 @@ export const Project = ({
   //   setCreateProj,
   //   editProj,
   //   setEditProj,
+  //   tasks,
+  //   createTask,
+  //   setTasks,
+  //   taskName,
+  //   setTaskName,
+  //   taskDesc,
+  //   setTaskDesc,
+  //   taskDate,
+  //   setTaskDate,
+  //   taskPriority,
+  //   setTaskPriority,
+  //   setCreateTask,
+  //   editTask,
+  //   setEditTask,
+  //   todayTasks,
+  //   setTodayTasks,
 }) => {
   return (
     <>

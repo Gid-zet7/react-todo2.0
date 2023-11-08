@@ -19,6 +19,18 @@ function App() {
   const [preview, setPreview] = useState(false);
   const [projectOnclicked, setprojectOnclicked] = useState("");
 
+  const initialTasksState = JSON.parse(localStorage.getItem("tasks")) || [];
+  const initialTodayTasksState =
+    JSON.parse(localStorage.getItem("todayTasks")) || [];
+  const [tasks, setTasks] = useState(initialTasksState);
+  const [taskName, setTaskName] = useState("");
+  const [taskDesc, setTaskDesc] = useState("");
+  const [taskDate, setTaskDate] = useState("");
+  const [taskPriority, setTaskPriority] = useState("");
+  const [createTask, setCreateTask] = useState(false);
+  const [editTask, setEditTask] = useState(null);
+  const [todayTasks, setTodayTasks] = useState(initialTodayTasksState);
+
   useEffect(() => {
     localStorage.setItem("todoList", JSON.stringify(todoList));
   }, [todoList]);
@@ -26,6 +38,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem("projects", JSON.stringify(projects));
   }, [projects]);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
   return (
     <>
       <TodoList
@@ -45,6 +61,22 @@ function App() {
         setPreview={setPreview}
         projectOnclicked={projectOnclicked}
         setprojectOnclicked={setprojectOnclicked}
+        tasks={tasks}
+        createTask={createTask}
+        setCreateTask={setCreateTask}
+        setTasks={setTasks}
+        todayTasks={todayTasks}
+        setTodayTasks={setTodayTasks}
+        taskName={taskName}
+        setTaskName={setTaskName}
+        taskDesc={taskDesc}
+        setTaskDesc={setTaskDesc}
+        taskDate={taskDate}
+        setTaskDate={setTaskDate}
+        taskPriority={taskPriority}
+        setTaskPriority={setTaskPriority}
+        editTask={editTask}
+        setEditTask={setEditTask}
       />
     </>
   );

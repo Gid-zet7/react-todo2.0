@@ -14,6 +14,22 @@ export const TodoList = ({
   setCreateProj,
   editProj,
   setEditProj,
+  tasks,
+  createTask,
+  setTasks,
+  taskName,
+  setTaskName,
+  taskDesc,
+  setTaskDesc,
+  taskDate,
+  setTaskDate,
+  taskPriority,
+  setTaskPriority,
+  setCreateTask,
+  editTask,
+  setEditTask,
+  todayTasks,
+  setTodayTasks,
 }) => {
   return (
     <>
@@ -30,6 +46,22 @@ export const TodoList = ({
         setCreateProj={setCreateProj}
         editProj={editProj}
         setEditProj={setEditProj}
+        tasks={tasks}
+        createTask={createTask}
+        setCreateTask={setCreateTask}
+        setTasks={setTasks}
+        todayTasks={todayTasks}
+        setTodayTasks={setTodayTasks}
+        taskName={taskName}
+        setTaskName={setTaskName}
+        taskDesc={taskDesc}
+        setTaskDesc={setTaskDesc}
+        taskDate={taskDate}
+        setTaskDate={setTaskDate}
+        taskPriority={taskPriority}
+        setTaskPriority={setTaskPriority}
+        editTask={editTask}
+        setEditTask={setEditTask}
       />
     </>
   );
