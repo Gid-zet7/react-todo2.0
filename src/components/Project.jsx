@@ -43,6 +43,15 @@ export const Project = ({
   // Responsible for changing the state/value of "createProj"
   const createProjHandler = () => {
     setCreateProj((prevState) => !prevState);
+    const overlay = document.querySelector("#overlay");
+    overlay.classList.add("active");
+  };
+
+  const overlayHandler = () => {
+    const overlay = document.querySelector("#overlay");
+    overlay.classList.remove("active");
+    setCreateProj(false);
+    setCreateTask(false);
   };
 
   useEffect(() => {
@@ -169,6 +178,7 @@ export const Project = ({
           setTodayTasks={setTodayTasks}
         />
       )}
+      <div className="overlay" id="overlay" onClick={overlayHandler}></div>
     </>
   );
 };

@@ -46,6 +46,8 @@ export const TaskForm = ({
   const createTaskCancelHandler = () => {
     setCreateTask((prevState) => !prevState);
     setEditTask("");
+    const overlay = document.querySelector("#overlay");
+    overlay.classList.remove("active");
   };
 
   // Checks inbox's tasks array and returns true if a newly created task already exists in the array and false otherwise
@@ -324,6 +326,8 @@ export const TaskForm = ({
       );
     }
     createTaskHandler();
+    const overlay = document.querySelector("#overlay");
+    overlay.classList.remove("active");
   };
 
   return (
@@ -362,6 +366,7 @@ export const TaskForm = ({
               required
               onChange={changePriorityHandler}
             >
+              <option value="none">select priority</option>
               <option value="high">high</option>
               <option value="medium">medium</option>
               <option value="low">low</option>

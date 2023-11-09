@@ -20,6 +20,8 @@ export const ProjectForm = ({
 
   const createProjCancelHandler = () => {
     setCreateProj((prevState) => !prevState);
+    const overlay = document.querySelector("#overlay");
+    overlay.classList.remove("active");
   };
 
   const onSubmitForm = (e) => {
@@ -44,6 +46,8 @@ export const ProjectForm = ({
     setProjectName("");
     console.log(projects);
     createProjHandler();
+    const overlay = document.querySelector("#overlay");
+    overlay.classList.remove("active");
   };
 
   return (

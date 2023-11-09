@@ -10,6 +10,13 @@ export const ProjectItem = ({
   const previewHandler = (e) => {
     setPreview(true);
     setprojectOnclicked(e.target.value);
+    const projectContainer = document.querySelector(".projects__container");
+    const header = document.querySelector(".header");
+    const taskList = document.querySelectorAll(".task-list > ul > li");
+
+    projectContainer.classList.add("slide");
+    header.classList.add("slide-down");
+    taskList.forEach((list) => list.classList.add("slide-up"));
   };
 
   const deleteHandler = ({ id }) => {

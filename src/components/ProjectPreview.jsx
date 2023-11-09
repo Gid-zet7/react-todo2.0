@@ -18,6 +18,8 @@ export const ProjectPreview = ({
 }) => {
   const createTaskHandler = () => {
     setCreateTask((prevState) => !prevState);
+    const overlay = document.querySelector("#overlay");
+    overlay.classList.add("active");
   };
 
   return (
